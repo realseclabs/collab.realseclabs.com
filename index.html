@@ -286,7 +286,7 @@
                         If you're into Python and love breaking stuff (ethically, of course), let’s team up. We’re working on some fun pentesting tools — from scanners to automation scripts — and always down to brainstorm and build with like-minded folks.
                     </p>
                     <div class="mt-4">
-                        <a href="https://bugcrowd.com/glandsouza" target="_blank" class="text-primary hover:underline inline-flex items-center">
+                        <a href="" target="_blank" class="text-primary hover:underline inline-flex items-center">
                             Connect & Code <i class="bi bi-box-arrow-up-right ml-2"></i>
                         </a>
                     </div>
@@ -317,29 +317,36 @@
                     Whether it’s a tool, script, concept, or wild pentesting idea — if it's exciting, we want in.
                     Tell us what you’re building or dreaming of.
                     Let’s make it real, together.                </p>
-                <form id="coolIdeaForm" class="space-y-4">
+                <form id="coolIdeaForm" name="coolIdeaForm" method="POST" data-netlify="true" class="space-y-4">
+                    <!-- Add this hidden input for Netlify -->
+                    <input type="hidden" name="form-name" value="coolIdeaForm">
+                    
+                    <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+
                     <!-- Basic Information -->
                     <div>
                         <label for="idea-name" class="block text-sm font-medium mb-1">Full Name</label>
-                        <input type="text" id="idea-name" name="name" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your full name">
+                        <input type="text" id="idea-name" name="name" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your full name" required>
                     </div>
                     <div>
                         <label for="idea-email" class="block text-sm font-medium mb-1">Email Address</label>
-                        <input type="email" id="idea-email" name="email" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your email">
+                        <input type="email" id="idea-email" name="email" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your email" required>
                     </div>
-    
+
                     <!-- Project / Idea Details -->
                     <div>
                         <label for="idea-title" class="block text-sm font-medium mb-1">Project / Idea Title</label>
-                        <input type="text" id="idea-title" name="title" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your project or idea title">
+                        <input type="text" id="idea-title" name="title" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your project or idea title" required>
                     </div>
                     <div>
                         <label for="idea-details" class="block text-sm font-medium mb-1">Describe Your Idea or Project</label>
-                        <textarea id="idea-details" name="details" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="4" placeholder="Describe your idea or project"></textarea>
+                        <textarea id="idea-details" name="details" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="4" placeholder="Describe your idea or project" required></textarea>
                     </div>
                     <div>
                         <label for="idea-prototype" class="block text-sm font-medium mb-1">Do You Have a Working Prototype or Code?</label>
-                        <select id="idea-prototype" name="prototype" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary">
+                        <select id="idea-prototype" name="prototype" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
                             <option value="" disabled selected>Select an option</option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
@@ -349,11 +356,11 @@
                         <label for="idea-link" class="block text-sm font-medium mb-1">Link to Your Project (Optional)</label>
                         <input type="url" id="idea-link" name="link" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter a link to your project (e.g., GitHub)">
                     </div>
-    
+
                     <!-- Collaboration Interest -->
                     <div>
                         <label for="idea-interest" class="block text-sm font-medium mb-1">What Are You Looking For?</label>
-                        <select id="idea-interest" name="interest" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary">
+                        <select id="idea-interest" name="interest" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
                             <option value="" disabled selected>Select your interest</option>
                             <option value="new-project">Collaborate on a new project</option>
                             <option value="existing-tool">Contribute to an existing RealSec tool</option>
@@ -365,13 +372,13 @@
                     </div>
                     <div>
                         <label for="idea-availability" class="block text-sm font-medium mb-1">Time Commitment / Availability</label>
-                        <input type="text" id="idea-availability" name="availability" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="e.g., Weekends only, 5 hrs/week, full-time">
+                        <input type="text" id="idea-availability" name="availability" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="e.g., Weekends only, 5 hrs/week, full-time" required>
                     </div>
-    
+
                     <!-- Final Bits -->
                     <div>
                         <label for="idea-hear" class="block text-sm font-medium mb-1">How Did You Hear About Us?</label>
-                        <select id="idea-hear" name="hear" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary">
+                        <select id="idea-hear" name="hear" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
                             <option value="" disabled selected>Select an option</option>
                             <option value="linkedin">LinkedIn</option>
                             <option value="twitter">Twitter</option>
@@ -384,7 +391,7 @@
                         <label for="idea-message" class="block text-sm font-medium mb-1">Any Message for the RealSec Labs Team? (Optional)</label>
                         <textarea id="idea-message" name="message" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="3" placeholder="Write your message here"></textarea>
                     </div>
-    
+
                     <!-- Submit Button -->
                     <div class="pt-4">
                         <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
