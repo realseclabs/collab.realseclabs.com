@@ -332,31 +332,32 @@
                     Whether it’s a tool, script, concept, or wild pentesting idea — if it's exciting, we want in.
                     Tell us what you’re building or dreaming of.
                     Let’s make it real, together.                </p>
-                <form id="coolIdeaForm" action="https://formsubmit.co/realseclabs@gmail.com" name="coolIdeaForm" method="POST" data-netlify="true" class="space-y-4">
-                    <!-- Add this hidden input for Netlify -->
-                    <input type="hidden" name="form-name" value="coolIdeaForm">
-                    
-                  
-
-                    <!-- Basic Information -->
+                <form action="https://script.google.com/macros/s/AKfycbw1OyC8uR1NEpna4--VtIa2TThMk1PM9GhfZjKFfn96Uc9GhlAXcJoWHC9Oi3fUbXA82A/exec" method="post" id="coolIdeaForm" class="space-y-4">
+                    <!-- Full Name -->
                     <div>
                         <label for="idea-name" class="block text-sm font-medium mb-1">Full Name</label>
                         <input type="text" id="idea-name" name="name" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your full name" required>
                     </div>
+
+                    <!-- Email Address -->
                     <div>
                         <label for="idea-email" class="block text-sm font-medium mb-1">Email Address</label>
                         <input type="email" id="idea-email" name="email" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your email" required>
                     </div>
 
-                    <!-- Project / Idea Details -->
+                    <!-- Project / Idea Title -->
                     <div>
                         <label for="idea-title" class="block text-sm font-medium mb-1">Project / Idea Title</label>
                         <input type="text" id="idea-title" name="title" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your project or idea title" required>
                     </div>
+
+                    <!-- Describe Your Idea -->
                     <div>
                         <label for="idea-details" class="block text-sm font-medium mb-1">Describe Your Idea or Project</label>
                         <textarea id="idea-details" name="details" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="4" placeholder="Describe your idea or project" required></textarea>
                     </div>
+
+                    <!-- Prototype -->
                     <div>
                         <label for="idea-prototype" class="block text-sm font-medium mb-1">Do You Have a Working Prototype or Code?</label>
                         <select id="idea-prototype" name="prototype" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
@@ -365,6 +366,8 @@
                             <option value="no">No</option>
                         </select>
                     </div>
+
+                    <!-- Link to Project -->
                     <div>
                         <label for="idea-link" class="block text-sm font-medium mb-1">Link to Your Project (Optional)</label>
                         <input type="url" id="idea-link" name="link" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter a link to your project (e.g., GitHub)">
@@ -383,12 +386,14 @@
                             <option value="mentorship">Seeking mentorship</option>
                         </select>
                     </div>
+
+                    <!-- Time Commitment -->
                     <div>
                         <label for="idea-availability" class="block text-sm font-medium mb-1">Time Commitment / Availability</label>
                         <input type="text" id="idea-availability" name="availability" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="e.g., Weekends only, 5 hrs/week, full-time" required>
                     </div>
 
-                    <!-- Final Bits -->
+                    <!-- How Did You Hear About Us -->
                     <div>
                         <label for="idea-hear" class="block text-sm font-medium mb-1">How Did You Hear About Us?</label>
                         <select id="idea-hear" name="hear" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
@@ -400,6 +405,8 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
+
+                    <!-- Message -->
                     <div>
                         <label for="idea-message" class="block text-sm font-medium mb-1">Any Message for the RealSec Labs Team? (Optional)</label>
                         <textarea id="idea-message" name="message" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="3" placeholder="Write your message here"></textarea>
@@ -845,35 +852,56 @@
         }
 
         // Handle form submission
-        document.getElementById('coolIdeaForm').addEventListener('submit', function (e) {
+        document.getElementById('coolIdeaForm').addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Retrieve and trim form values
+            // Retrieve form values
             const name = document.getElementById('idea-name').value.trim();
             const email = document.getElementById('idea-email').value.trim();
             const details = document.getElementById('idea-details').value.trim();
+            const title = document.getElementById('idea-title').value.trim();
+            const prototype = document.getElementById('idea-prototype').value.trim();
+            const link = document.getElementById('idea-link').value.trim();
+            const interest = document.getElementById('idea-interest').value.trim();
+            const availability = document.getElementById('idea-availability').value.trim();
+            const hear = document.getElementById('idea-hear').value.trim();
+            const message = document.getElementById('idea-message').value.trim();
 
             // Basic validation
-            if (!name || !email || !details) {
-                alert('Please fill out all fields.');
+            if (!name || !email || !details || !title || !prototype || !interest || !availability || !hear) {
+                alert('Please fill out all required fields.');
                 return;
             }
 
-            // Email format validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
+            try {
+                console.log('Submitting data:', {
+                    name,
+                    email,
+                    details,
+                    title,
+                    prototype,
+                    link,
+                    interest,
+                    availability,
+                    hear,
+                    message,
+                });
+
+                // Simulate successful form submission (replace this with your actual logic)
+                // Example: Firestore submission logic can go here
+
+                // Show the success modal
+                showSuccessModal();
+
+                // Reset the form
+                this.reset();
+
+                // Optionally hide the "Cool Idea" modal
+                hideCoolIdeaModal();
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred while submitting your response. Please try again.');
             }
-
-            // If validation passes, show success modal
-            showSuccessModal();
-
-            // Reset the form
-            this.reset();
-
-            // Optionally hide the idea modal
-            hideCoolIdeaModal();
         });
 
         function showSuccessModal() {
@@ -1002,5 +1030,8 @@ document.getElementById('coolIdeaForm').addEventListener('submit', function (e) 
     hideResumeModal();
 });
 </script>
-	</body>
+
+
+  
+</body>
 </html>
