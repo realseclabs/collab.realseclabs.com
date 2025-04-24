@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
     <title>RealSec Labs - Building Security through Trust</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        emailjs.init("oE6K0397cUV6oIq4Z");
         tailwind.config = {
             theme: {
                 extend: {
@@ -202,6 +205,11 @@
                 transform: scale(1);
             }
         }
+        .lock-icon {
+            color: #808080; /* Light gray */
+            margin-left: 0.5rem; /* Add spacing */
+            font-size: 1.2rem; /* Adjust size */
+        }
     </style>
 </head>
 
@@ -322,7 +330,7 @@
     <div id="coolIdeaModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
         <div class="bg-[#1e1e1e] rounded-xl max-w-lg w-full modal-content overflow-hidden">
             <div class="flex justify-between items-center border-b border-gray-700 p-3">
-                <h3 class="text-xl font-bold text-primary">Let’s Hack Together (The Good Way 😄)</h3>
+                <h3 class="text-xl font-bold text-primary">Let’s Collaborate & Build Secure Futures<i class="bi bi-lock lock-icon"></i></h3>
                 <button onclick="hideCoolIdeaModal()" class="text-gray-400 hover:text-white">
                     <i class="bi bi-x-lg"></i>
                 </button>
@@ -332,7 +340,7 @@
                     Whether it’s a tool, script, concept, or wild pentesting idea — if it's exciting, we want in.
                     Tell us what you’re building or dreaming of.
                     Let’s make it real, together.                </p>
-                <form action="https://script.google.com/macros/s/AKfycbw1OyC8uR1NEpna4--VtIa2TThMk1PM9GhfZjKFfn96Uc9GhlAXcJoWHC9Oi3fUbXA82A/exec" method="post" id="coolIdeaForm" class="space-y-4">
+                <form action="https://script.google.com/macros/s/YOUR_WEB_APP_URL/exec" method="POST" id="coolIdeaForm" class="space-y-4">
                     <!-- Full Name -->
                     <div>
                         <label for="idea-name" class="block text-sm font-medium mb-1">Full Name</label>
@@ -414,7 +422,7 @@
 
                     <!-- Submit Button -->
                     <div class="pt-4">
-                        <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
+                        <button id="submitButton" type="submit" class="w-full bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
                             Send & Connect
                         </button>
                     </div>
@@ -570,7 +578,7 @@
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = `
                         <div class="inline-block w-4 h-4 mr-2 loading-spinner"></div>
-                        Sending...
+                        Hold on, making things happen...
                     `;
                     
                     // Simulate API request
@@ -638,206 +646,7 @@
             document.body.style.overflow = 'auto';
         }
         
-        // Contact modal functionality
-        function showContactModal() {
-            const contactModal = document.getElementById('contactModal');
-            contactModal.classList.remove('hidden');
-            
-            // Disable body scroll
-            document.body.style.overflow = 'hidden';
-        }
         
-        function hideContactModal() {
-            const contactModal = document.getElementById('contactModal');
-            contactModal.classList.add('hidden');
-            
-            // Re-enable body scroll
-            document.body.style.overflow = 'auto';
-        }
-
-        // Resume modal functionality
-        function showResumeModal() {
-            const resumeModal = document.getElementById('resumeModal');
-            resumeModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Disable body scroll
-        }
-        
-        function hideResumeModal() {
-            const resumeModal = document.getElementById('resumeModal');
-            resumeModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Re-enable body scroll
-        }
-
-        function downloadResume(domain) {
-            let resumeUrl = '';
-            switch (domain) {
-                case 'blue-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Blue Teaming(Defensive Security).pdf'; // Replace with actual file path
-                    break;
-                case 'red-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Red Teaming(Offensive Security).pdf'; // Replace with actual file path
-                    break;
-                case 'purple-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Purple Teaming.pdf'; // Replace with actual file path
-                    break;
-                default:
-                    alert('Please select a valid domain');
-                    return;
-            }
-            window.open(resumeUrl, '_blank'); // Open the resume in a new tab
-            hideResumeModal(); // Close the modal after download
-        }
-
-        function handleResumeDownload() {
-            const resumeType = document.getElementById('resume-type').value;
-
-            if (!resumeType) {
-                alert('Please select a resume type');
-                return;
-            }
-
-            let resumeUrl = '';
-            switch (resumeType) {
-                case 'blue-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Blue Teaming(Defensive Security).pdf'; // Replace with actual file path
-                    break;
-                case 'red-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Red Teaming(Offensive Security).pdf'; // Replace with actual file path
-                    break;
-                case 'purple-team':
-                    resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Purple Teaming.pdf'; // Replace with actual file path
-                    break;
-                default:
-                    alert('Invalid selection');
-                    return;
-            }
-
-            // Trigger the download
-            const link = document.createElement('a');
-            link.href = resumeUrl;
-            link.download = resumeUrl.split('/').pop(); // Extract the file name from the URL
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            hideResumeModal(); // Close the modal after download
-        }
-        
-        // Contact form validation (basic example)
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.querySelector('#contact form');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form fields
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // Basic validation
-                    if (!name || !email || !subject || !message) {
-                        alert('Please fill out all fields');
-                        return;
-                    }
-                    
-                    // Email validation
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(email)) {
-                        alert('Please enter a valid email address');
-                        return;
-                    }
-                    
-                    // Simulated form submission
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = `
-                        <div class="inline-block w-4 h-4 mr-2 loading-spinner"></div>
-                        Sending...
-                    `;
-                    
-                    // Simulate API request
-                    setTimeout(() => {
-                        alert('Thank you! Your message has been sent successfully.');
-                        contactForm.reset();
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
-                    }, 2000);
-                });
-            }
-        });
-
-        // Fetch and display GitHub repositories
-        document.addEventListener('DOMContentLoaded', function () {
-            const username = 'realseclabs'; // Replace with your GitHub username
-            const repoContainer = document.getElementById('github-repos');
-            const repoLoader = document.getElementById('repo-loader');
-
-            // Language color mapping
-            const languageColors = {
-                JavaScript: '#f1e05a',
-                Python: '#3572A5',
-                Java: '#b07219',
-                HTML: '#e34c26',
-                CSS: '#563d7c',
-                TypeScript: '#2b7489',
-                Ruby: '#701516',
-                PHP: '#4F5D95',
-                C: '#555555',
-                'C++': '#f34b7d',
-                Go: '#00ADD8',
-                Shell: '#89e051',
-                Swift: '#ffac45',
-                Kotlin: '#A97BFF',
-                Rust: '#dea584',
-                Dart: '#00B4AB',
-                // Add more languages and colors as needed
-            };
-
-            // Show the loader
-            repoLoader.style.display = 'flex';
-
-            fetch(`https://api.github.com/users/${username}/repos`)
-                .then(response => response.json())
-                .then(repos => {
-                    // Hide the loader
-                    repoLoader.style.display = 'none';
-
-                    repos.forEach(repo => {
-                        const repoCard = document.createElement('div');
-                        repoCard.className = 'tool-card p-4 rounded-lg border border-gray-700 flex flex-col justify-between';
-
-                        const languageColor = languageColors[repo.language] || '#cccccc'; // Default color if language not found
-
-                        repoCard.innerHTML = `
-                            <div>
-                                <h4 class="font-bold mb-2">${repo.name}</h4>
-                                <p class="text-gray-300 text-sm mb-3">${repo.description || 'No description available.'}</p>
-                            </div>
-                            <div class="mt-auto flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <span class="h-3 w-3 rounded-full mr-2" style="background-color: ${languageColor};"></span>
-                                    <span class="text-xs text-gray-400">${repo.language || 'N/A'}</span>
-                                </div>
-                                <a href="${repo.html_url}" target="_blank" class="text-primary hover:underline text-sm">
-                                    View Repository <i class="bi bi-box-arrow-up-right text-xs ml-1"></i>
-                                </a>
-                            </div>
-                        `;
-
-                        repoContainer.appendChild(repoCard);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching repositories:', error);
-                    repoLoader.style.display = 'none';
-                    repoContainer.innerHTML = '<p class="text-gray-300">Unable to load repositories at this time.</p>';
-                });
-        });
 
         function showCoolIdeaModal() {
             const coolIdeaModal = document.getElementById('coolIdeaModal');
@@ -852,56 +661,57 @@
         }
 
         // Handle form submission
-        document.getElementById('coolIdeaForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+        document.getElementById('coolIdeaForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
 
-            // Retrieve form values
-            const name = document.getElementById('idea-name').value.trim();
-            const email = document.getElementById('idea-email').value.trim();
-            const details = document.getElementById('idea-details').value.trim();
-            const title = document.getElementById('idea-title').value.trim();
-            const prototype = document.getElementById('idea-prototype').value.trim();
-            const link = document.getElementById('idea-link').value.trim();
-            const interest = document.getElementById('idea-interest').value.trim();
-            const availability = document.getElementById('idea-availability').value.trim();
-            const hear = document.getElementById('idea-hear').value.trim();
-            const message = document.getElementById('idea-message').value.trim();
+            const submitButton = document.getElementById('submitButton');
+            const originalButtonText = "Code & Connect"; // Default button text
 
-            // Basic validation
-            if (!name || !email || !details || !title || !prototype || !interest || !availability || !hear) {
-                alert('Please fill out all required fields.');
-                return;
-            }
+            // Show loader and change the button text during submission
+            submitButton.disabled = true;
+            submitButton.innerHTML = `
+                <div class="inline-block w-4 h-4 border-4 border-gray-300 border-t-primary rounded-full animate-spin mr-2"></div>
+                Hold on, making things happen...
+            `;
 
-            try {
-                console.log('Submitting data:', {
-                    name,
-                    email,
-                    details,
-                    title,
-                    prototype,
-                    link,
-                    interest,
-                    availability,
-                    hear,
-                    message,
+            // Collect form data
+            const formData = {
+                name: document.getElementById('idea-name').value.trim(),
+                email: document.getElementById('idea-email').value.trim(),
+                details: document.getElementById('idea-details').value.trim(),
+                title: document.getElementById('idea-title').value.trim(),
+                prototype: document.getElementById('idea-prototype').value.trim(),
+                link: document.getElementById('idea-link').value.trim(),
+                interest: document.getElementById('idea-interest').value.trim(),
+                availability: document.getElementById('idea-availability').value.trim(),
+                hear: document.getElementById('idea-hear').value.trim(),
+                message: document.getElementById('idea-message').value.trim(),
+            };
+
+            // Send the email using EmailJS
+            emailjs.send("service_7f2aezz", "template_65wxahi", formData)
+                .then(function (response) {
+                    console.log("SUCCESS!", response.status, response.text);
+
+                    // Show the success modal
+                    showSuccessModal();
+
+                    // Reset the form
+                    document.getElementById('coolIdeaForm').reset();
+
+                    // Reset the button to its original state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, function (error) {
+                    console.error("FAILED...", error);
+
+                    // Show an error message
+                    alert("An error occurred while submitting your response. Please try again.");
+
+                    // Reset the button to its original state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
                 });
-
-                // Simulate successful form submission (replace this with your actual logic)
-                // Example: Firestore submission logic can go here
-
-                // Show the success modal
-                showSuccessModal();
-
-                // Reset the form
-                this.reset();
-
-                // Optionally hide the "Cool Idea" modal
-                hideCoolIdeaModal();
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('An error occurred while submitting your response. Please try again.');
-            }
         });
 
         function showSuccessModal() {
@@ -1003,32 +813,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-function showResumeModal() {
-    const resumeModal = document.getElementById('resumeModal');
-    resumeModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Disable body scroll
-}
-
-function hideResumeModal() {
-    const resumeModal = document.getElementById('resumeModal');
-    resumeModal.classList.add('hidden');
-    document.body.style.overflow = 'auto'; // Re-enable body scroll
-}
 
 // Handle form submission
-document.getElementById('coolIdeaForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById('idea-name').value.trim();
-    const email = document.getElementById('idea-email').value.trim();
-    const details = document.getElementById('idea-details').value.trim();
-
-   
-
-    
-    this.reset();
-    hideResumeModal();
+document.getElementById('coolIdeaForm').addEventListener('submit', function () {
+    // No need to manually retrieve fields or prevent default behavior
+    console.log('Form submitted');
 });
+
 </script>
 
 
