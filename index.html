@@ -210,34 +210,6 @@
             margin-left: 0.5rem; /* Add spacing */
             font-size: 1.2rem; /* Adjust size */
         }
-
-        /* Secure Gateway Loader Styles */
-        .loader {
-            border: 6px solid #222;
-            border-top: 6px solid #FF6B00;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Fade In Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .animate-fadeIn {
-            animation: fadeIn 0.3s;
-        }
     </style>
 </head>
 
@@ -276,23 +248,22 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight">
-                        <span class="gradient-text">A Zero Trust</span> 
-                        <br>Access Gateway
+                        <span class="gradient-text">Let’s Build</span> 
+                        <br>Something Awesome Together
                     </h1>
                     
                     
 
                     <p class="text-xl mb-8 text-gray-300 mt-6">
-Never Trust, Always Verify — Access with Confidence.
-</p>
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-    <a id="secure-gateway-btn"
-       href="#"
-       class="bg-primary hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-200 text-lg glow text-center">
-        Access the Secure Gateway
-        <i class="bi bi-box-arrow-up-right ml-2"></i>
-    </a>
-</div>
+                        I’m always open to collaborating with passionate minds. Whether you're a developer, designer, researcher, or an idea person — if you’re excited to explore, build, or innovate, I’d love to connect with you.                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#" onclick="showCoolIdeaModal()" class="bg-primary hover:bg-orange-500 text-white py-3 px-8 rounded-md font-medium transition-all glow text-center">
+                            Got Something Cool?
+                        </a>
+                        <a href="#collaborate" class="border-2 border-primary text-white hover:bg-primary/20 py-3 px-8 rounded-md font-medium transition-all text-center">
+                            Collaborate
+                        </a>
+                    </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative">
@@ -316,16 +287,37 @@ Never Trust, Always Verify — Access with Confidence.
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
-                    Secure Every Access Point with 
-
- <span class="text-primary">TrustNix</span>
+                    Work With Us <span class="text-primary">— Collaborate & Innovate</span>
                 </h2>
                 <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
                 <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-In today’s evolving threat landscape, perimeter defenses alone are not enough. TrustNix is a modern Zero Trust Access Gateway designed to secure organizational resources by enforcing strict identity verification and context-aware access control.
+                    At RealSec Labs, we welcome collaboration from professionals dedicated to security, technology, and creative problem-solving. Browse our current collaboration needs.                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 5: Bugcrowd Profile -->
+                <div class="bg-secondary p-6 rounded-xl border border-gray-700 transition-all duration-300 card-hover flex flex-col text-center h-full">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <!-- Python Logo -->
+                        <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg" alt="Python Logo" class="w-10 h-10 filter-orange">
+                        <!-- Text beside the image -->
+                        <h3 class="text-xl font-bold text-primary">Python + Pentesting</h3>
+                    </div>
+                    <br><br>
+                    <h3 class="text-xl font-bold mb-2">Let’s Build Something Cool Together</h3>
 
-With TrustNix, every access request is authenticated, authorized, and continuously verified before allowing entry—eliminating implicit trust and minimizing attack surfaces.            </div>
-            
+                    <p class="text-gray-300">
+                        If you're into Python and love breaking stuff (ethically, of course), let’s team up. We’re working on some fun pentesting tools — from scanners to automation scripts — and always down to brainstorm and build with like-minded folks.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" onclick="showConnectCodeModal()" class="text-primary hover:underline inline-flex items-center">
+                            Connect & Code <i class="bi bi-box-arrow-up-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 4: HackerOne Profile -->
+                
+               
+            </div>
         </div>
     </section>
 
@@ -334,7 +326,137 @@ With TrustNix, every access request is authenticated, authorized, and continuous
 
 
    
+    <!-- Cool Idea Modal -->
+    <div id="coolIdeaModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
+        <div class="bg-[#1e1e1e] rounded-xl max-w-lg w-full modal-content overflow-hidden">
+            <div class="flex justify-between items-center border-b border-gray-700 p-3">
+                <h3 class="text-xl font-bold text-primary">Let’s Collaborate & Build Secure Futures<i class="bi bi-lock lock-icon"></i></h3>
+                <button onclick="hideCoolIdeaModal()" class="text-gray-400 hover:text-white">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 max-h-[80vh] overflow-y-auto">
+                <p class="text-gray-300 mb-6">
+                    Whether it’s a tool, script, concept, or wild pentesting idea — if it's exciting, we want in.
+                    Tell us what you’re building or dreaming of.
+                    Let’s make it real, together.                </p>
+                <form action="https://script.google.com/macros/s/YOUR_WEB_APP_URL/exec" method="POST" id="coolIdeaForm" class="space-y-4">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="idea-name" class="block text-sm font-medium mb-1">Full Name</label>
+                        <input type="text" id="idea-name" name="name" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div>
+                        <label for="idea-email" class="block text-sm font-medium mb-1">Email Address</label>
+                        <input type="email" id="idea-email" name="email" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Project / Idea Title -->
+                    <div>
+                        <label for="idea-title" class="block text-sm font-medium mb-1">Project / Idea Title</label>
+                        <input type="text" id="idea-title" name="title" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter your project or idea title" required>
+                    </div>
+
+                    <!-- Describe Your Idea -->
+                    <div>
+                        <label for="idea-details" class="block text-sm font-medium mb-1">Describe Your Idea or Project</label>
+                        <textarea id="idea-details" name="details" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="4" placeholder="Describe your idea or project" required></textarea>
+                    </div>
+
+                    <!-- Prototype -->
+                    <div>
+                        <label for="idea-prototype" class="block text-sm font-medium mb-1">Do You Have a Working Prototype or Code?</label>
+                        <select id="idea-prototype" name="prototype" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <!-- Link to Project -->
+                    <div>
+                        <label for="idea-link" class="block text-sm font-medium mb-1">Link to Your Project (Optional)</label>
+                        <input type="url" id="idea-link" name="link" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="Enter a link to your project (e.g., GitHub)">
+                    </div>
+
+                    <!-- Collaboration Interest -->
+                    <div>
+                        <label for="idea-interest" class="block text-sm font-medium mb-1">What Are You Looking For?</label>
+                        <select id="idea-interest" name="interest" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
+                            <option value="" disabled selected>Select your interest</option>
+                            <option value="new-project">Collaborate on a new project</option>
+                            <option value="existing-tool">Contribute to an existing RealSec tool</option>
+                            <option value="core-team">Join the RealSec Labs core team</option>
+                            <option value="share-idea">Share my idea only</option>
+                            <option value="learn-grow">Learn & grow with the team</option>
+                            <option value="mentorship">Seeking mentorship</option>
+                        </select>
+                    </div>
+
+                    <!-- Time Commitment -->
+                    <div>
+                        <label for="idea-availability" class="block text-sm font-medium mb-1">Time Commitment / Availability</label>
+                        <input type="text" id="idea-availability" name="availability" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" placeholder="e.g., Weekends only, 5 hrs/week, full-time" required>
+                    </div>
+
+                    <!-- How Did You Hear About Us -->
+                    <div>
+                        <label for="idea-hear" class="block text-sm font-medium mb-1">How Did You Hear About Us?</label>
+                        <select id="idea-hear" name="hear" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="friend">Friend/Colleague</option>
+                            <option value="blog">Blog</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="idea-message" class="block text-sm font-medium mb-1">Any Message for the RealSec Labs Team? (Optional)</label>
+                        <textarea id="idea-message" name="message" class="w-full bg-secondary border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:border-primary" rows="3" placeholder="Write your message here"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button id="submitButton" type="submit" class="w-full bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
+                            Send & Connect
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
+    <div id="successModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
+        <div class="bg-[#1e1e1e] rounded-xl max-w-md w-full modal-content p-6 text-center">
+            <h3 class="text-xl font-bold text-primary mb-4">Idea Securely Submitted!</h3>
+            <p class="text-gray-300 mb-6">We’ve received your idea and will respond soon if it aligns with our goals.</p>
+            <button onclick="hideSuccessModal()" class="bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <div id="connectCodeModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
+        <div class="bg-[#1e1e1e] rounded-xl max-w-md w-full modal-content p-6 text-center">
+            <h3 class="text-xl font-bold text-primary mb-4">Hold Up, Hacker!
+
+            </h3>
+            <p class="text-gray-300 mb-6">
+                Appreciate the enthusiasm — but this specific collaboration isn’t open right now.
+                We’re building behind the scenes. Stay tuned for updates!
+                
+                            </p>
+            <button onclick="hideConnectCodeModal()" class="bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-[#101010] text-gray-300 py-12 px-4">
         <div class="container mx-auto">
@@ -369,30 +491,31 @@ With TrustNix, every access request is authenticated, authorized, and continuous
                 
                 <!-- Quick Links -->
                 <div>
-                <h4 class="font-bold text-lg mb-6">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="./index.html" class="text-gray-400 hover:text-primary">Home</a></li>
-                    <li><a href="https://tools.realseclabs.com/" class="text-gray-400 hover:text-primary">Explore Live Tools</a></li>
-
-                    <li><a href="https://blog.realseclabs.com/" class="text-gray-400 hover:text-primary">Blogs</a></li>
-                    <li><a href="https://realseclabs.com/" class="text-gray-400 hover:text-primary">RealSec Labs</a></li>
-                </ul>
-            </div>
+                    <h4 class="font-bold text-lg mb-6">Quick Links</h4>
+                    <!-- Spinner Loader -->
+                    <div class="flex justify-center mt-4">
+                        <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                    </div>
+                </div>
                 
                 <!-- Services -->
-                 <div>
-                <h4 class="font-bold text-lg mb-6">Want to Collab?</h4>
-                <!-- Spinner Loader -->
-                
-                    <ul class="space-y-2">
-                        <li><a href="https://collab.realseclabs.com" class="text-gray-400 hover:text-primary">collab.realseclabs.com</a></li>
-                        </ul>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Services</h4>
+                    <!-- Spinner Loader -->
+                    <div class="flex justify-center mt-4">
+                        <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
                 
                 <!-- Newsletter -->
-                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Subscribe to Our Newsletter</h4>
+                    <!-- Spinner Loader -->
+                    <div class="flex justify-center mt-4">
+                        <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                    </div>
+                </div>
+            </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-gray-400">
                 <div class="flex flex-col md:flex-row justify-between items-center">
@@ -407,60 +530,299 @@ With TrustNix, every access request is authenticated, authorized, and continuous
         </div>
     </footer>
 
-    <!-- Secure Gateway Loader Modal -->
-<div id="secure-loader-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
-    <div class="bg-secondary rounded-xl p-8 flex flex-col items-center shadow-2xl border border-primary animate-fadeIn">
-        <div class="loader mb-6"></div>
-        <div class="text-primary font-bold text-xl mb-2">Connecting securely...</div>
-        <div class="text-gray-300 text-sm">Establishing Zero Trust session</div>
-    </div>
-</div>
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Get in Touch modal
+            const getInTouchBtn = document.getElementById('getInTouch');
+            getInTouchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showContactModal();
+            });
+            
+            // Contact modal form submission
+            const contactModalForm = document.getElementById('contactModalForm');
+            if (contactModalForm) {
+                contactModalForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form fields
+                    const name = document.getElementById('modal-name').value;
+                    const email = document.getElementById('modal-email').value;
+                    const domain = document.getElementById('hiring-domain').value;
+                    
+                    // Basic validation
+                    if (!name || !email || !domain) {
+                        alert('Please fill out all fields');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+                    
+                    // Simulated form submission
+                    const submitBtn = contactModalForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `
+                        <div class="inline-block w-4 h-4 mr-2 loading-spinner"></div>
+                        Hold on, making things happen...
+                    `;
+                    
+                    // Simulate API request
+                    setTimeout(() => {
+                        alert('Thank you for your interest! Our team will contact you soon.');
+                        contactModalForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                        hideContactModal();
+                    }, 2000);
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') return;
+
+                    e.preventDefault();
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+
+                    // Scroll to section with offset
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = targetId ? document.getElementById(targetId) : null;
+                    if (targetElement) {
+                        const offset = 120; // Adjust this value to ensure the section is fully visible
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - offset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Tool demo functionality
+        function showToolDemo(tool) {
+            const demoContainer = document.getElementById('toolDemo');
+            demoContainer.classList.remove('hidden');
+            
+            // Hide all demos
+            document.getElementById('intruscanDemo').classList.add('hidden');
+            document.getElementById('iamrealDemo').classList.add('hidden');
+            
+            // Show selected demo
+            document.getElementById(`${tool}Demo`).classList.remove('hidden');
+            
+            // Disable body scroll
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideToolDemo() {
+            const demoContainer = document.getElementById('toolDemo');
+            demoContainer.classList.add('hidden');
+            
+            // Re-enable body scroll
+            document.body.style.overflow = 'auto';
+        }
+        
+        
+
+        function showCoolIdeaModal() {
+            const coolIdeaModal = document.getElementById('coolIdeaModal');
+            coolIdeaModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Disable body scroll
+        }
+
+        function hideCoolIdeaModal() {
+            const coolIdeaModal = document.getElementById('coolIdeaModal');
+            coolIdeaModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable body scroll
+        }
+
+        // Handle form submission
+        document.getElementById('coolIdeaForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            const submitButton = document.getElementById('submitButton');
+            const originalButtonText = "Code & Connect"; // Default button text
+
+            // Show loader and change the button text during submission
+            submitButton.disabled = true;
+            submitButton.innerHTML = `
+                <div class="inline-block w-4 h-4 border-4 border-gray-300 border-t-primary rounded-full animate-spin mr-2"></div>
+                Hold on, making things happen...
+            `;
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('idea-name').value.trim(),
+                email: document.getElementById('idea-email').value.trim(),
+                details: document.getElementById('idea-details').value.trim(),
+                title: document.getElementById('idea-title').value.trim(),
+                prototype: document.getElementById('idea-prototype').value.trim(),
+                link: document.getElementById('idea-link').value.trim(),
+                interest: document.getElementById('idea-interest').value.trim(),
+                availability: document.getElementById('idea-availability').value.trim(),
+                hear: document.getElementById('idea-hear').value.trim(),
+                message: document.getElementById('idea-message').value.trim(),
+            };
+
+            // Send the email using EmailJS
+            emailjs.send("service_7f2aezz", "template_65wxahi", formData)
+                .then(function (response) {
+                    console.log("SUCCESS!", response.status, response.text);
+
+                    // Show the success modal
+                    showSuccessModal();
+
+                    // Reset the form
+                    document.getElementById('coolIdeaForm').reset();
+
+                    // Reset the button to its original state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, function (error) {
+                    console.error("FAILED...", error);
+
+                    // Show an error message
+                    alert("An error occurred while submitting your response. Please try again.");
+
+                    // Reset the button to its original state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                });
+        });
+
+        function showSuccessModal() {
+            const successModal = document.getElementById('successModal');
+            successModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Disable body scroll
+        }
+
+        function hideSuccessModal() {
+            const successModal = document.getElementById('successModal');
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable body scroll
+        }
+
+        function showConnectCodeModal() {
+            const connectCodeModal = document.getElementById('connectCodeModal');
+            connectCodeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Disable body scroll
+        }
+
+        function hideConnectCodeModal() {
+            const connectCodeModal = document.getElementById('connectCodeModal');
+            connectCodeModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable body scroll
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
 <script>
-document.getElementById('secure-gateway-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('secure-loader-modal').classList.remove('hidden');
-    // Show "Connecting securely..." first
-    document.querySelector('#secure-loader-modal .text-primary').textContent = "Connecting securely...";
-    document.querySelector('#secure-loader-modal .text-gray-300').textContent = "Establishing Zero Trust session";
-    // After 1.2s, show "Redirecting..."
-    setTimeout(function() {
-         document.querySelector('#secure-loader-modal .text-primary').textContent = "TrustNix Session Established";
-    document.querySelector('#secure-loader-modal .text-gray-300').textContent = "Redirecting securely to zt-access.trustnix.realseclabs.com";
-    }, 1200);
-    // After 2s, redirect
-    setTimeout(function() {
-        window.location.href = "https://zt-access.trustnix.realseclabs.com";
-    }, 2000);
+    const slider = document.getElementById('linkedin-slider');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    prevBtn.addEventListener('click', function() {
+         slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function() {
+         slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+</script>
+<script>
+  
+  
+  // Get the width and margin of one card (adjust the gap if needed; here 32px equals space-x-8)
+  const card = slider.querySelector('.card-hover');
+  let cardWidth = card.offsetWidth;
+  // Calculate total scroll amount for 3 cards (card width + gap)
+  let gap = 32; // in pixels (adjust if your Tailwind spacing changes)
+  let scrollAmount = (cardWidth + gap) * 3;
+  
+  prevBtn.addEventListener('click', function() {
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const contactModalForm = document.getElementById('contactModalForm');
+  if (contactModalForm) {
+    contactModalForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Retrieve and trim form values
+      const name = document.getElementById('modal-name').value.trim();
+      const email = document.getElementById('modal-email').value.trim();
+      const domain = document.getElementById('hiring-domain').value;
+      
+      // Basic validation
+      if (!name || !email || !domain) {
+        alert('Please fill out all fields');
+        return;
+      }
+      
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      // Construct mailto URL
+      // Change "your-email@example.com" to the recipient's email address.
+      const subject = encodeURIComponent(`Get in Touch from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nDomain: ${domain}`);
+      const mailtoLink = `mailto:glanloyand@realseclabs.com?subject=${subject}&body=${body}`;
+      
+      // Open the user's default mail client with the pre-filled data
+      window.location.href = mailtoLink;
+      
+      // Optionally, you can reset the form and hide the modal after a slight delay
+      setTimeout(() => {
+        contactModalForm.reset();
+        hideContactModal();
+      }, 1000);
+    });
+  }
 });
-</script>
-<div id="toast-container" class="fixed top-6 right-6 z-[9999] flex flex-col space-y-3"></div>
-<script>
-// Toast notification function
-function showToast(message) {
-    const toast = document.createElement('div');
-    toast.className =
-        "flex items-center bg-secondary bg-opacity-95 text-white px-6 py-4 rounded-lg shadow-2xl border-l-4 border-primary font-medium animate-fadeIn";
-    toast.style.minWidth = "280px";
-    toast.style.fontSize = "1.08rem";
-    toast.innerHTML =
-        '<i class="bi bi-info-circle-fill text-primary text-xl mr-3"></i>' +
-        '<span>' + message + '</span>';
-    document.getElementById('toast-container').appendChild(toast);
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.5s';
-        setTimeout(() => toast.remove(), 500);
-    }, 5000);
-}
 
-// Show the "not yet developed" toast on page load
-showToast("This tool is not yet developed. Stay tuned!");
 
-// Show the collaboration toast after 5 seconds
-setTimeout(function() {
-    showToast('Want to collaborate? Visit <a href="https://collab.realseclabs.com" class="underline text-primary ml-1" target="_blank">collab.realseclabs.com</a>');
-}, 5000);
+// Handle form submission
+document.getElementById('coolIdeaForm').addEventListener('submit', function () {
+    // No need to manually retrieve fields or prevent default behavior
+    console.log('Form submitted');
+});
+
 </script>
+
+
   
 </body>
 </html>
